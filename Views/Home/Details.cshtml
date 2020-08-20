@@ -1,0 +1,39 @@
+@{
+ViewData["Title"] = "Details";
+}
+
+@model Wedding
+
+<div class="bg-dark text-center mt-10">
+  <div class="text-white bg-dark ">
+    <div class="text-left mt-4">
+      <a class="btn btn-primary" href="/weddings">Dashboard</a>
+      <a class="btn btn-warning" href="/logout">Logout</a>
+    </div>
+    <h3 class="display-5 mt-2">@Model.Wedder1 & @Model.Wedder2's Wedding:</h3>
+    <div class="row">
+      <div class="ml-2 col-5">
+        <h6 class="text-left">Date: </h6>
+        <p>@String.Format("{0:d}", Model.Date)</p>
+        <h6 class="text-left">Planner: </h6>
+        <p>@Model.Planner.FirstName @Model.Planner.LastName </p>
+        <h6 class="text-left">Address:</h6>
+        <p>@Model.Address </p>
+        <h6 class="text-left">Guests:</h6>
+        <ol>
+          @foreach (Association a in @Model.Attendees)
+          {
+          @if( a.Attendee.UserId == ViewBag.User.UserId)
+          {
+          <li class="text-left">@a.Attendee.FirstName @a.Attendee.LastName</li>
+          }
+          else
+          {
+          <li class="text-left">@a.Attendee.FirstName @a.Attendee.LastName</li>
+          }
+          }
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

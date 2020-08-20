@@ -1,0 +1,51 @@
+@{
+ViewData["Title"] = "Dashboard";
+}
+
+@model List<Wedding>
+
+  <div class="bg-dark text-center">
+    <div class="text-white bg-dark mt-10">
+      <div class="text-left mt-4">
+        <a class="btn btn-primary" href="/new">Plan Wedding</a>
+        <a class="btn btn-warning" href="/logout">Logout</a>
+      </div>
+
+      <table class="table-striped table text-white mt-3 p-2">
+        <thead>
+          <tr>
+            <th>Wedding</th>
+            <th>Date</th>
+            <th>Guest</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (Wedding w in @Model)
+          {
+          <tr>
+            <td><a class="btn btn-warning" href="/weddings/@w.WeddingId">@w.Wedder1 & @w.Wedder2</a></td>
+
+            <td>@String.Format("{0:d}", w.Date)</td>
+            <td>@w.Attendees.Count</td>
+            <td>
+              @if(w.Planner.UserId == ViewBag.User.UserId)
+              {
+              <a class="btn btn-danger" href="/weddings/@w.WeddingId/delete">Delete</a>
+              }
+              else if( w.Attendees.Any(a => a.UserId == ViewBag.User.UserId))
+              {
+              <a class="btn btn-warning" href="/weddings/@w.WeddingId/leave">Cancel</a>
+              }
+              else
+              {
+              <a class="btn btn-success" href="/weddings/@w.WeddingId/rsvp">RSVP</a>
+              }
+            </td>
+          </tr>
+          }
+        </tbody>
+
+      </table>
+    </div>
+  </div>
