@@ -1,6 +1,7 @@
 # Wedding Planner
+Planning to get married soon? Good news, I've made a full-stack app for you, yes for you! And yes it's absolutely free and mobile-friendly! 
+Stack: C#/ASP.DOTNET/Entity/SQL
 
-# How to:
 
 ## Install Entity Framework
 ```cs
