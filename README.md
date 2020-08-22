@@ -1,7 +1,9 @@
 # Wedding Planner
 Planning to get married soon? Good news, I've made a full-stack app for you, yes for you! And yes it's absolutely free and mobile-friendly! 
-Stack: C#/ASP.DOTNET/Entity/SQL
+Stack: C#/ASP.NET/Entity/SQL
 
+## Hosted by AWS
+I don't know how long I'll keep it alive, but it's here http://3.14.4.5/
 
 ## Install Entity Framework
 ```cs
@@ -16,7 +18,7 @@ vim appsettings.json
 # ...userid=XXXX;password=XXX;port=3306;...
 ```
 
-## Reslore project
+## Restore project
 ```
 dotnet restore
 ```
@@ -33,7 +35,7 @@ dotnet ef database update -v
 dotnet watch run
 ```
 
-## LOCALHOST
+## Localhost
 to open app go to 
 ```
 http://localhost:5000 
